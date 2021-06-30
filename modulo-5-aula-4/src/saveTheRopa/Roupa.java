@@ -1,4 +1,4 @@
-package save.the.ropa;
+package saveTheRopa;
 
 public class Roupa extends Vestuario {
     public Roupa(String marca, String modelo) {

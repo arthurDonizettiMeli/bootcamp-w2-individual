@@ -1,4 +1,4 @@
-package save.the.ropa;
+package saveTheRopa;
 
 public abstract class Vestuario {
     String marca;

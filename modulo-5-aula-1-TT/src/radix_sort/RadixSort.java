@@ -5,22 +5,24 @@ import java.util.Arrays;
 import java.util.List;
 
 public class RadixSort {
-  private static List<String> L0 = new ArrayList<>();
-  private static List<String> L1 = new ArrayList<>();
-  private static List<String> L2 = new ArrayList<>();
-  private static List<String> L3 = new ArrayList<>();
-  private static List<String> L4 = new ArrayList<>();
-  private static List<String> L5 = new ArrayList<>();
-  private static List<String> L6 = new ArrayList<>();
-  private static List<String> L7 = new ArrayList<>();
-  private static List<String> L8 = new ArrayList<>();
-  private static List<String> L9 = new ArrayList<>();
+  private static final List<String> L0 = new ArrayList<>();
+  private static final List<String> L1 = new ArrayList<>();
+  private static final List<String> L2 = new ArrayList<>();
+  private static final List<String> L3 = new ArrayList<>();
+  private static final List<String> L4 = new ArrayList<>();
+  private static final List<String> L5 = new ArrayList<>();
+  private static final List<String> L6 = new ArrayList<>();
+  private static final List<String> L7 = new ArrayList<>();
+  private static final List<String> L8 = new ArrayList<>();
+  private static final List<String> L9 = new ArrayList<>();
 
   public static void radixSort(int[] iArr) {
-    int maior = Arrays.stream(iArr).max().getAsInt();
-    int qntCasas = (int) Math.log10((double) maior) + 1;
 
-    String sArr[] = new String[iArr.length];
+
+    int maior = Arrays.stream(iArr).max().orElse(0);
+    int qntCasas = (int) Math.log10(maior) + 1;
+
+    String[] sArr = new String[iArr.length];
     List<String> resArr = new ArrayList<>();
 
     for (int i = 0; i < iArr.length; i++) {
@@ -28,8 +30,8 @@ public class RadixSort {
     }
 
     for (int casa = qntCasas - 1; casa >= 0; casa--) {
-      for (int i = 0; i < sArr.length; i++) {
-        adicionarItemListaCorrespondente(sArr[i], casa);
+      for (String s : sArr) {
+        adicionarItemListaCorrespondente(s, casa);
       }
       incluirItensOrdenados(resArr);
       limparListasComplementares();
@@ -105,7 +107,7 @@ public class RadixSort {
   }
 
   public static void main(String[] args) {
-    int iArr[] = {16223, 898, 13, 906, 235, 23, 9, 1532, 6388, 2511, 8};
+    int[] iArr = {16223, 898, 13, 906, 235, 23, 9, 1532, 6388, 2511, 8};
 
     radixSort(iArr);
 

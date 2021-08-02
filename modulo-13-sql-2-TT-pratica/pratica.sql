@@ -2,7 +2,7 @@
 -- Normalização são as regras de padronização para um banco de dados relacional. É utilizada para evitar redundâncias, garantir a integridade referencial e obter otimizações de desempenho.
 
 -- 2
-insert into genres (created_at, name, ranking, active) values (now(), 'Genero fluido não binário', 13, 1); -- 13
+insert into genres (created_at, name, ranking, active) values (now(), 'Genero novo', 13, 1); -- 13
 
 -- 3 e 4
 insert into movies (title, rating, awards, release_date, `length`, genre_id) values ('Filme top', 10, 4, now(), 120, 13);
